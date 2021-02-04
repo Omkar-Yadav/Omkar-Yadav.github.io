@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
+  defer></script>
+<style>
+  body,
+  h1,
+  h2,
+  h4,
+  h5,
+  h6 {
+    font-family: "Raleway", sans-serif;
+  }
+
+  h3 {
+    font-family: "Raleway", sans-serif;
+    color: #ff6600;
+  }
+
+  body,
+  html {
+    height: 100%;
+    line-height: 1.8;
+  }
+
+  /* Full height image header */
+  .bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    /* background-image: url("./2.jpg"); 
+  min-height: 80%; */
+    min-height: 100%;
+    min-width: 100%;
+  }
+
+
+  /* about us */
+  .bgimg-2 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("aboutus.jpg");
+    /* min-height: 80%; */
+    min-height: 100%;
+    min-width: 100%;
+  }
+
+  .w3-bar .w3-button {
+    padding: 16px;
+  }
+
+  #map {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+  }
+
+
+  /* Slide show css */
+  /* Slideshow container */
+  .slideshow-container {
+    /* max-width: 1000px; */
+    position: absolute;
+    margin: auto;
+  }
+
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  .active,
+  .dot:hover {
+    background-color: #717171;
+  }
+
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {
+      opacity: .4
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: .4
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+
+    .prev,
+    .next,
+    .text {
+      font-size: 11px
+    }
+  }
+
+
+
+
+  /*
+  faq section
+  */
+  .faqHeader {
+    font-size: 27px;
+    margin: 20px;
+  }
+
+  .panel-heading [data-toggle="collapse"]:after {
+    font-family: 'Glyphicons Halflings';
+    content: "e072";
+    /* "play" icon */
+    float: right;
+    color: #F58723;
+    font-size: 18px;
+    line-height: 22px;
+    /* rotate "play" icon from > (right arrow) to down arrow */
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .panel-heading [data-toggle="collapse"].collapsed:after {
+    /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    color: #454444;
+  }
+
+
+
+
+  .collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+
+  .active,
+  .collapsible:hover {
+    background-color: #555;
+  }
+
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+</style>
+
+<body>
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top" class="w3-container w3-light-grey">
+    <div class="w3-bar w3-white w3-card w3-light-grey " style="padding: 10px;" id="myNavbar">
+      <img src="./resources/images/vtlogoname.png" width="300" height="75">
+      <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-small">
+        <a href="#" class="w3-bar-item w3-button color:blue"
+          style="color: #ff6600; font-size: 18px; "><strong>HOME</strong></a>
+        <a href="#about" class="w3-bar-item w3-button"
+          style="color: #ff6600; font-size: 18px;  "><strong>ABOUT</strong></a>
+        <a href="#products" class="w3-bar-item w3-button"
+          style="color: #ff6600; font-size: 18px;   "><strong>PRODUCTS</strong> </a>
+        <a href="#support" class="w3-bar-item w3-button" style="color: #ff6600; font-size: 18px;   ">
+          <strong>SUPPORT</strong></a>
+        <!-- <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a> -->
+        <a href="#contact" class="w3-bar-item w3-button" style="color: #ff6600; font-size: 18px;   ">
+          <strong>CONTACT</strong></a>
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+        onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Sidebar on small screens when clicking the menu icon -->
+  <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
+    style="display:none" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button">HOME</a>
+    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button" style="color: #ff6600  ">ABOUT</a>
+    <a href="#support" onclick="w3_close()" class="w3-bar-item w3-button" style="color: #ff6600  ">SUPPORT</a>
+    <a href="#products" onclick="w3_close()" class="w3-bar-item w3-button" style="color: #ff6600  ">PRODUCTS</a>
+    <!-- <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a> -->
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button" style="color: #ff6600  ">CONTACT</a>
+  </nav>
+
+  <header>
+    <div class="w3-display-container w3-light-grey" id="home">
+      <div class="mySlides fade ">
+        <div class="numbertext">1 / 3</div>
+        <img src="./resources/images/mobileauto.jpg" style="width:100% ; height:880px; padding: 20px;">
+        <div class="text"><span class="w3-jumbo w3-hide-small" style="color: white ">Smart Mobile Auto</span><br></div>
+        <div class="w3-display-left w3-text-white" style="padding:48px">
+        </div>
+      </div>
+      <div class="mySlides fade ">
+        <div class="numbertext">2 / 3</div>
+        <img src="./resources/images/ha.jpg" style="width:100% ; height:880px ; padding: 20px;">
+        <div class="text"> <span class="w3-jumbo w3-hide-small" style="color: white ">Home Automation</span></div>
+        <div class="w3-display-left w3-text-white" style="padding:48px">
+        </div>
+      </div>
+      <div class="mySlides fade ">
+        <div class="numbertext">3 / 3</div>
+        <img src="./resources/images/vfd.jpg" style="width:100% ; height:880px; padding: 20px;">
+        <div class="text"> <span class="w3-jumbo w3-hide-small" style="color: white ">VFDs</span><br></div>
+        <div class="w3-display-left w3-text-white" style="padding:48px">
+          </span>
+        </div>
+      </div>
+    </div>
+  
+    <div style="text-align:center" class="w3-light-grey">
+      <br>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+  </header>
+
+  <!-- About Section -->
+  <div class="w3-container" style="padding:128px 16px" id="about">
+    <h3 class="w3-center" style="color: #ff6600 "><strong>ABOUT US </strong></h3>
+    <br>
+    <div class="w3-row-padding "  >
+      <div class="w3-col m8">
+        <P class="w3-center"> <img src="./resources/images/aboutus.jpg" style="width:100% ; height:400px"> </P>
+      </div>
+      <div class="w3-col m4">
+        <h4>
+          </br>
+          We at variantouch thrive to improve human life by engineering relaible products which provide best user
+          experiene and great performance. All these products are created by our experts in IOT, app development & web
+          development. We are proud part of make in india initiative.
+        </h4>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div id="product1" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('product1').style.display='none'"
+          class="w3-button w3-display-topright">&times;</span>
+        <h3 class="w3-center">Variantouch mobile auto</h3>
+        <p>
+        <ul>
+          <li>
+            You can control your water pump (motor) by calling or messaging with your mobile from anywhere.
+          </li>
+          <li>
+            You can get notified about dryrun, overload, phase down, phase reverse either by call or SMS.
+          </li>
+          <li>
+            You can switch on/off the motor by just a missed call.
+          </li>
+          <li>
+            Single phase or three phase with any power can be controlled.
+          </li>
+          <li>
+            You can control the motor by selected upto 15 phone numbers.
+          </li>
+          <li>
+            It avoids damages due to irregular power supply, which saves your money and time.
+          </li>
+          <li>
+            It assures total safety as it is well tested and it is shockproof, durable and requres less maintainance.
+          </li>
+          <li>
+            It is compatible with any type of phone, i.e. you can use a smartphone or any phone to control the motor.
+          </li>
+          <li>
+            It is very easy to use and It saves human efforts.
+          </li>
+        </ul>
+        </p>
+        <p class="w3-center">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/qtlPwTNXZg0" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Product Section -->
+  <div class="w3-container w3-light-grey" style="padding:128px 16px" id="products">
+    <h3 class="w3-center">PRODUCTS</h3>
+    <p class="w3-center w3-large">OUR CREATIONS</p>
+    <div class="w3-row-padding  " style="margin-top:64px">
+      <div class="w3-col l4 m6 w3-margin-bottom">
+        <div class="w3-card " >
+          <img src="./resources/images/mobileauto.jpg" alt="John" style="width:100%; cursor: pointer">
+          <div class="w3-container">
+            <h3>Mobile Auto</h3>
+            <p>Helps you watering your farm at your convinience, you can controll your motor using various
+              functionalities, avaialable with our product, that too at your finger tip.<br>
+            <p><a onclick="document.getElementById('product1').style.display='block'" style="color:blue; ;">Read More
+                ......</a></p>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col l4 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="./resources/images/ha.jpg" alt="Jane" style="width:100%">
+          <div class="w3-container">
+            <h3>Home Automation</h3>
+            <!-- <p class="w3-opacity">Art Director</p> -->
+            <p>Controlling and monitoring your home appliances at your ease with best security provided.<br>
+            <p> Coming soon ...</p>
+            </p>
+            <!-- <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p> -->
+          </div>
+        </div>
+      </div>
+      <div class="w3-col l4 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="./resources/images/vfd.jpg" alt="Mike" style="width:100%;  height:inherit">
+          <div class="w3-container">
+            <h3>VFDs</h3>
+            <!-- <p class="w3-opacity">Web Designer</p> -->
+            <p>Controlling speed of AC motor by ramping it up for smooth start. It can generate three phase power supply
+              from single phase power supply and also from DC power supply, by adjusting frequency& voltage required.
+            <p>Coming soon ...</p>
+            </p>
+            <!-- <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Promo Section "Statistics" -->
+  <!-- <div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">14+</span>
+    <br>Partners
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">55+</span>
+    <br>Projects Done
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">89+</span>
+    <br>Happy Clients
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">150+</span>
+    <br>Meetings
+  </div>
+</div> -->
+
+  <!-- Support Section -->
+  <div class="w3-container w3-white" style="padding:128px 16px" id="support">
+    <h3 class="w3-center">SUPPORT</h3>
+
+    <div class="w3-row-padding" style="margin-top:64px">
+      <div class="w3-col l4 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="./resources/images/qm.jpg" alt="FAQ" style="width:100%"
+            onclick="document.getElementById('faq-product1').style.display='block'">
+          <div class="w3-container">
+            <h3>FAQ's</h3>
+            <p>Frequently asked questions</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col l4 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="./resources/images/vd.png" alt="Videos" style="width:100%">
+          <div class="w3-container">
+            <h3>Videos</h3>
+            <p>Find relavant videos for using and installing our products</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col l4 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="./resources/images/dn.png" alt="Download" style="width:100%">
+          <div class="w3-container">
+            <h3>Download </h3>
+            <p>Download the app from play store and apple store</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+    <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption" class="w3-opacity w3-large"></p>
+    </div>
+  </div>
+
+  <div id="faq-product1" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('faq-product1').style.display='none'"
+          class="w3-button w3-display-topright">&times;</span>
+        <h3 class="w3-center">FAQs</h3>
+
+        <h3 class="w3-center">Variantouch mobile auto</h3>
+        <button type="button" class="collapsible">1) How do I get this product? <i class="fa fa fa-plus fa-fw   w3-margin-right " style="float: right; color:#ff6600"> </i></button>
+        <div class="content">
+          <p>You can get this product by contacting the given number or just messaging us on Whatsapp.</p>
+        </div>
+        <button type="button" class="collapsible">2) How can I control this device?  <i class="fa fa fa-plus fa-fw   w3-margin-right " style="float: right; color:#ff6600"> </i></button>
+        <div class="content">
+          <p>We provide various ways to control this device as you can control it by calling or by sending an SMS from
+            your registered mobile number.</p>
+        </div>
+        <button type="button" class="collapsible">3) Can I control this device with just a missed call?  <i class="fa fa fa-plus fa-fw   w3-margin-right " style="float: right; color:#ff6600"> </i></button> 
+        <div class="content">
+          <p> You can switch on/off the motor by just a missed call.</p>
+        </div>
+
+        <button type="button" class="collapsible">4) In case of failure of this device, will it also damage my
+          motor?  <i class="fa fa fa-plus fa-fw   w3-margin-right " style="float: right; color:#ff6600"> </i></button>
+        <div class="content">
+          <p>  As this product is tested in multiple scenarios, it assures reliable functioning of it. It helps
+            avoiding damages due to irregular power supply, cut offs, voltage fluctuations, dry run, high currents,
+            negative sequence and phase imbalance.</p>
+        </div>
+
+        <button type="button" class="collapsible">5) How many users can controll a single variantouch mobile
+          auto?  <i class="fa fa fa-plus fa-fw   w3-margin-right " style="float: right; color:#ff6600"> </i></button>
+        <div class="content">
+          <p> You can controll variantouch mobile auto with upto 10 users.</p>
+        </div>
+
+        <button type="button" class="collapsible">6)What are prerequisites for complete installation of the variantouch
+          mobile auto?  <i class="fa fa fa-plus fa-fw   w3-margin-right " style="float: right; color:#ff6600"> </i></button>
+        <div class="content">
+          <p> Working motor(Water pump), 2g working sim card with sufficeint balance for sending SMS and making the
+            calls.</p>
+        </div>
+
+        <button type="button" class="collapsible">7) How much warranty is provided on this product?  <i class="fa fa fa-plus fa-fw   w3-margin-right " style="float: right; color:#ff6600"> </i></button>
+        <div class="content">
+          <p> we are provding 2 years of warranty on this product. And with best support, available in the market.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Contact Section -->
+  <div class="w3-container w3-light-grey w3-padding-64" id="contact">
+    <h3 class="w3-center">CONTACT</h3>
+
+    <div class="w3-row-padding">
+      <div class="w3-col m4">
+        <p class="w3-center  w3-large"><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right "
+            style="color:#ff6600"> </i> Find us on maps</p>
+        <div class="w3-center"><iframe style="box-shadow: 10px 10px 5px grey;"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.4324625363442!2d73.82291135076001!3d18.46406018738027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc295441cdf524b%3A0x4431e33fede7c538!2sNiranjan%20Residency%2C%20Wadgaon%20Budruk%20-%20Narhe%20Rd%2C%20Ghule%20Nagar%2C%20Vadgaon%20Budruk%2C%20Pune%2C%20Maharashtra%20411041!5e0!3m2!1sen!2sin!4v1612446934490!5m2!1sen!2sin"
+            width=”100%” height=”300%” frameborder="0" style="border:0;" allowfullscreen="false" aria-hidden="false"
+            tabindex="0"></iframe></div>
+      </div>
+      <div class="w3-col m4">
+        <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right" style="color:#ff6600"></i> Niranjan Residency,
+          Wadgaon Budruk - Narhe Rd, Ghule Nagar, Vadgaon Budruk, Pune, 411041 Maharashtra, India
+        </p>
+        <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right" style="color:#ff6600"></i> +91 9890371245</p>
+        <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right" style="color:#ff6600"> </i>
+          variantouch@gmail.com</p>
+      </div>
+
+      <div class="w3-col m4">
+        <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
+        <form action="/action_page.php" target="_blank">
+          <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
+          <p>
+            <button class="w3-button w3-black" type="submit">
+              <i class="fa fa-paper-plane " style="color:#ff6600"></i> SEND MESSAGE
+            </button>
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Pricing Section -->
+  <!-- <div class="w3-container w3-center w3-dark-grey" style="padding:128px 16px" id="pricing">
+  <h3>PRICING</h3>
+  <p class="w3-large">Choose a pricing plan that fits your needs.</p>
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-third w3-section">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-black w3-xlarge w3-padding-32">Basic</li>
+        <li class="w3-padding-16"><b>10GB</b> Storage</li>
+        <li class="w3-padding-16"><b>10</b> Emails</li>
+        <li class="w3-padding-16"><b>10</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">$ 10</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+    <div class="w3-third">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
+        <li class="w3-padding-16"><b>25GB</b> Storage</li>
+        <li class="w3-padding-16"><b>25</b> Emails</li>
+        <li class="w3-padding-16"><b>25</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">$ 25</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+    <div class="w3-third w3-section">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-black w3-xlarge w3-padding-32">Premium</li>
+        <li class="w3-padding-16"><b>50GB</b> Storage</li>
+        <li class="w3-padding-16"><b>50</b> Emails</li>
+        <li class="w3-padding-16"><b>50</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">$ 50</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+
+  <!-- Footer -->
+  <footer class="w3-center w3-dark-grey w3-padding-64">
+    <a href="#" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+    <div class="w3-xlarge w3-section">
+      <i class="fa fa-facebook-official w3-hover-opacity" style="color:#ff6600"></i>
+      <i class="fa fa-instagram w3-hover-opacity " style="color:#ff6600"></i>
+      <i class="fa fa-snapchat w3-hover-opacity" style="color:#ff6600"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity" style="color:#ff6600"></i>
+      <i class="fa fa-twitter w3-hover-opacity" style="color:#ff6600"></i>
+      <i class="fa fa-linkedin w3-hover-opacity" style="color:#ff6600"></i>
+    </div>
+    <p>All rights reserved with variantouch pvt limited. </p>
+  </footer>
+
+  <script>
+    //Slider code 
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    var mySidebar = document.getElementById("mySidebar");
+
+    function w3_open() {
+      if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+      } else {
+        mySidebar.style.display = 'block';
+      }
+    }
+
+    // Close the sidebar with the close button
+    function w3_close() {
+      mySidebar.style.display = "none";
+    }
+
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+
+  </script>
+
+</body>
+
+</html>
