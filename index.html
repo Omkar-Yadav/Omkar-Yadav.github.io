@@ -303,10 +303,11 @@
         <!-- <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a> -->
         <a href="#contact" class="w3-bar-item w3-button" style="color: #ff6600; font-size: 18px;   ">
           <strong>CONTACT</strong></a>
-      </div>
-           <button  onClick="changeToMarathi()"  class="w3-bar-item w3-button color:blue"
-      style="color: #ff6600; font-size: 18px; "><strong>मराठी 
+         <button  onClick="changeToMarathi()"  class="w3-bar-item w3-button color:blue"
+          style="color: #ff6600; font-size: 18px; "><strong>मराठी 
       </strong></button>
+      </div>
+
       <!-- Hide right-floated links on small screens and replace them with a menu icon -->
       <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
         onclick="w3_open()">
@@ -727,10 +728,10 @@
       setTimeout(showSlides, 3000); // Change image every 3 seconds
     }
    // Change language to marathi
-    <button  onClick="changeToMarathi()"  class="w3-bar-item w3-button color:blue"
-      style="color: #ff6600; font-size: 18px; "><strong>मराठी 
-      </strong></button>
-
+       function changeToMarathi() {
+        document.location.href("marathi_index.html");
+    }       
+   
     // Modal Image Gallery
     function onClick(element) {
       document.getElementById("img01").src = element.src;
