@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+ <head><link rel="shortcut icon" type="image/x-icon" href="./resources/images/vtlogo.png" /> </head>
+<title>Variantouch</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./resources/lib/w3.css">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"> 
+<link rel="stylesheet" href="./resources/lib/font-awesome.min.css">
+<script src="./resources/lib/jquery.min.js"></script>
+<script src="./resources/lib/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCFPrEHJA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCMPrEHJA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCHPrEHJA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCGPrEHJA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCIPrE.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+  body,
+  h1,
+  h2,
+  h4,
+  h5,
+  h6 {
+    font-family: "Raleway", sans-serif;
+  }
+
+  h3 {
+    font-family: "Raleway", sans-serif;
+    color: #ff6600;
+  }
+
+  body,
+  html {
+    height: 100%;
+    line-height: 1.8;
+  }
+
+  /* Full height image header */
+  .bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    /* background-image: url("./2.jpg"); 
+  min-height: 80%; */
+    min-height: 100%;
+    min-width: 100%;
+  }
+
+
+  /* about us */
+  .bgimg-2 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("aboutus.jpg");
+    /* min-height: 80%; */
+    min-height: 100%;
+    min-width: 100%;
+  }
+
+  .w3-bar .w3-button {
+    padding: 16px;
+  }
+
+  #map {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+  }
+
+
+  /* Slide show css */
+  /* Slideshow container */
+  .slideshow-container {
+    /* max-width: 1000px; */
+    position: absolute;
+    margin: auto;
+  }
+
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  .active,
+  .dot:hover {
+    background-color: #717171;
+  }
+
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {
+      opacity: .4
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: .4
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+
+    .prev,
+    .next,
+    .text {
+      font-size: 11px
+    }
+  }
+
+
+
+
+  /*
+  faq section
+  */
+  .faqHeader {
+    font-size: 27px;
+    margin: 20px;
+  }
+
+  .panel-heading [data-toggle="collapse"]:after {
+    font-family: 'Glyphicons Halflings';
+    content: "e072";
+    /* "play" icon */
+    float: right;
+    color: #F58723;
+    font-size: 18px;
+    line-height: 22px;
+    /* rotate "play" icon from > (right arrow) to down arrow */
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .panel-heading [data-toggle="collapse"].collapsed:after {
+    /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    color: #454444;
+  }
+
+
+
+
+  .collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+
+  .active,
+  .collapsible:hover {
+    background-color: #555;
+  }
+
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+</style>
+
+<body>
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top" class="w3-container w3-light-grey">
+    <div class="w3-bar w3-white w3-card w3-light-grey " style="padding: 10px;" id="myNavbar">
+      <img src="./resources/images/vtlogoname.png" width="300" height="75">
+      <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-small">
+        <a href="#" class="w3-bar-item w3-button color:blue"
+          style="color: #ff6600; font-size: 18px; "><strong>मुख्यपृष्ठ</strong></a>
+        <a href="#about" class="w3-bar-item w3-button"
+          style="color: #ff6600; font-size: 18px;  "><strong>
+            आमच्याबद्दल</strong></a>
+        <a href="#products" class="w3-bar-item w3-button"
+          style="color: #ff6600; font-size: 18px;   "><strong>
+            उत्पादने</strong> </a>
+        <a href="#support" class="w3-bar-item w3-button" style="color: #ff6600; font-size: 18px;   ">
+          <strong>मदत</strong></a>
+        <!-- <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a> -->
+        <a href="#contact" class="w3-bar-item w3-button" style="color: #ff6600; font-size: 18px;   ">
+          <strong>संपर्क</strong></a>
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+        onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Sidebar on small screens when clicking the menu icon -->
+  <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
+    style="display:none" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">बंद ×</a>
+    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button">मुख्यपृष्ठ</a>
+    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button" style="color: #ff6600  ">आमच्याबद्दल</a>
+    <a href="#support" onclick="w3_close()" class="w3-bar-item w3-button" style="color: #ff6600  ">मदत</a>
+    <a href="#products" onclick="w3_close()" class="w3-bar-item w3-button" style="color: #ff6600  ">उत्पादने</a>
+    <!-- <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a> -->
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button" style="color: #ff6600  ">संपर्क</a>
+  </nav>
+
+  <header>
+    <div class="w3-display-container w3-light-grey" id="home">
+      <div class="mySlides fade ">
+        <div class="numbertext">1 / 3</div>
+        <img src="./resources/images/mobileauto.jpg" style="width:100% ; height:880px; padding: 20px;">
+        <div class="text"><span class="w3-jumbo w3-hide-small" style="color: white ">स्मार्ट मोबाइल ऑटो</span><br></div>
+        <div class="w3-display-left w3-text-white" style="padding:48px">
+        </div>
+      </div>
+      <div class="mySlides fade ">
+        <div class="numbertext">2 / 3</div>
+        <img src="./resources/images/ha.jpg" style="width:100% ; height:880px ; padding: 20px;">
+        <div class="text"> <span class="w3-jumbo w3-hide-small" style="color: white ">
+            होम ऑटोमेशन</span></div>
+        <div class="w3-display-left w3-text-white" style="padding:48px">
+        </div>
+      </div>
+      <div class="mySlides fade ">
+        <div class="numbertext">3 / 3</div>
+        <img src="./resources/images/vfd.jpg" style="width:100% ; height:880px; padding: 20px;">
+        <div class="text"> <span class="w3-jumbo w3-hide-small" style="color: white ">VFDs</span><br></div>
+        <div class="w3-display-left w3-text-white" style="padding:48px">
+          </span>
+        </div>
+      </div>
+    </div>
+  
+    <div style="text-align:center" class="w3-light-grey">
+      <br>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+  </header>
+
+  <!-- About Section -->
+  <div class="w3-container" style="padding:128px 16px" id="about">
+    <h3 class="w3-center" style="color: #ff6600 "><strong>आमच्याबद्दल </strong></h3>
+    <br>
+    <div class="w3-row-padding "  >
+      <div class="w3-col m8">
+        <P class="w3-center"> <img src="./resources/images/aboutus.jpg" style="width:100% ; height:400px"> </P>
+      </div>
+      <div class="w3-col m4">
+        <h4>
+          </br>
+          Variantouch येथे आम्ही सर्वोत्तम वापराकर्ता अनुभव आणि उत्कृष्ट कार्यप्रदर्शन प्रदान करणाऱ्या विश्वासार्ह उत्पादनांचे अभियांत्रिकी करून मानवी जीवन सुधारण्यासाठी प्रयत्न करतो. ही सर्व उत्पादने आमच्या IOT, app development & web development. तज्ञांनी तयार केली आहेत. आम्ही अभिमानाने मेक इन इंडिया उपक्रमाचा एक भाग आहोत.
+        </h4>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div id="product1" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('product1').style.display='none'"
+          class="w3-button w3-display-topright">&times;</span>
+        <h3 class="w3-center">Variantouch mobile auto</h3>
+        <p>
+        <ul>
+          <li>
+            तुम्ही तुमच्या मोबाईलवर कुठूनही कॉल करून किंवा मेसेज करून तुमचा पाण्याचा पंप (मोटर) नियंत्रित करू शकता.
+          </li>
+          <li>
+            तुम्ही ड्राय रन, ओव्हरलोड, फेज डाउन, फेज रिव्हर्स बद्दल कॉल किंवा एसएमएसद्वारे सूचना मिळवू शकता.
+          </li>
+          <li>
+            तुम्ही फक्त मिस कॉल करून मोटर चालू/बंद करू शकता.
+          </li>
+          <li>
+            सिंगल फेज किंवा थ्री फेज कोणत्याही पॉवरसह नियंत्रित केले जाऊ शकते.
+          </li>
+          <li>
+            तुम्ही 5 पर्यंत फोन नंबर निवडून मोटर नियंत्रित करू शकता.
+          </li>
+          <li>
+            अनियमित वीज पुरवठ्यामुळे होणारे नुकसान टाळते, ज्यामुळे तुमचे पैसे आणि वेळ वाचतो.
+          </li>
+          <li>
+            हे संपूर्ण सुरक्षिततेची हमी देते कारण त्याची सर्वोत्तम चाचणी केली जाते आणि ती शॉकप्रूफ, टिकाऊ आहे आणि त्याची कमी देखभाल आवश्यक आहे.
+          </li>
+          <li>
+            हे कोणत्याही प्रकारच्या फोनशी सुसंगत आहे, म्हणजे मोटर नियंत्रित करण्यासाठी तुम्ही स्मार्टफोन किंवा कोणताही फोन वापरू शकता.
+          </li>
+          <li>
+            हे वापरण्यास अतिशय सोपे आहे आणि यामुळे मानवी प्रयत्नांची बचत होते.
+          </li>
+        </ul>
+        </p>
+        <!-- <p class="w3-center">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/qtlPwTNXZg0" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </p> -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Product Section -->
+  <div class="w3-container w3-light-grey" style="padding:128px 16px" id="products">
+    <h3 class="w3-center">उत्पादने</h3>
+    <p class="w3-center w3-large">आमची निर्मिती</p>
+    <div class="w3-row-padding  " style="margin-top:64px">
+      <div class="w3-col l4 m6 w3-margin-bottom">
+        <div class="w3-card " >
+          <img src="./resources/images/mobileauto.jpg" alt="John" style="width:100%; cursor: pointer">
+          <div class="w3-container">
+            <h3>मोबाईल ऑटो</h3>
+            <p>तुम्हाला तुमच्या सोयीनुसार तुमच्या शेताला पाणी देण्यास मदत करते, तुम्ही आमच्या उत्पादनात उपलब्ध असलेल्या विविध वैशिष्ट्यांचा वापर करून तुमची मोटर नियंत्रित करू शकता, तेही जगात कोठेही राहून.<br>
+            <p><a onclick="document.getElementById('product1').style.display='block'" style="color:blue; ;">Read More
+                ......</a></p>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col l4 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="./resources/images/ha.jpg" alt="Jane" style="width:100%">
+          <div class="w3-container">
+            <h3>होम ऑटोमेशन</h3>
+            <!-- <p class="w3-opacity">Art Director</p> -->
+            <p>प्रदान केलेल्या सर्वोत्तम सुरक्षिततेसह आपल्या घरातील उपकरणांचे नियंत्रण आणि निरीक्षण करणे.
+              <br>
+            <p><br> लवकरच येत आहे...</p>
+            </p>
+            <!-- <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p> -->
+          </div>
+        </div>
+      </div>
+      <div class="w3-col l4 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="./resources/images/vfd.jpg" alt="Mike" style="width:100%;  height:inherit">
+          <div class="w3-container">
+            <h3>VFDs</h3>
+            <!-- <p class="w3-opacity">Web Designer</p> -->
+            <p>Controlling speed of AC motor by ramping it up for smooth start. It can generate three phase power supply
+              from single phase power supply and also from DC power supply, by adjusting frequency& voltage required.
+            <p>लवकरच येत आहे...</p>
+            </p>
+            <!-- <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Promo Section "Statistics" -->
+  <!-- <div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">14+</span>
+    <br>Partners
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">55+</span>
+    <br>Projects Done
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">89+</span>
+    <br>Happy Clients
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">150+</span>
+    <br>Meetings
+  </div>
+</div> -->
+
+  <!-- Support Section -->
+  <div class="w3-container w3-white" style="padding:128px 16px" id="support">
+    <h3 class="w3-center">मदत</h3>
+
+    <div class="w3-row-padding" style="margin-top:64px">
+      <div class="w3-col l4 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="./resources/images/qm.jpg" alt="FAQ" style="width:100%"
+            onclick="document.getElementById('faq-product1').style.display='block'">
+          <div class="w3-container">
+            <h3>सामान्य प्रश्न</h3>
+            <p>सतत विचारले जाणारे प्रश्न</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col l4 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="./resources/images/vd.jpg" alt="Videos" style="width:100%">
+          <div class="w3-container">
+            <h3>व्हिडिओ</h3>
+            <p>आमची उत्पादने वापरण्यासाठी आणि स्थापित करण्यासाठी संबंधित व्हिडिओ पहा.</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col l4 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="./resources/images/dn.jpg" alt="Download" style="width:100%">
+          <div class="w3-container">
+            <h3>डाउनलोड करा </h3>
+            <p>प्ले स्टोअर आणि ऍपल स्टोअर वरून संबंधित applications डाउनलोड करा</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+    <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption" class="w3-opacity w3-large"></p>
+    </div>
+  </div>
+
+  <div id="faq-product1" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('faq-product1').style.display='none'"
+          class="w3-button w3-display-topright">&times;</span>
+        <h3 class="w3-center">FAQs</h3>
+
+        <h3 class="w3-center">Variantouch मोबाईल ऑटो</h3>
+        <button type="button" class="collapsible">1) मला हे उत्पादन कसे मिळेल? <i class="fa fa fa-plus fa-fw   w3-margin-right " style="float: right; color:#ff6600"> </i></button>
+        <div class="content">
+          <p>तुम्ही दिलेल्या नंबरवर कॉल करून किंवा आम्हाला Whatsapp वर मेसेज करून हे उत्पादन मिळवू शकता. तसेच तुम्ही आमच्याशी ईमेल, फेसबुक, इन्स्टाग्रामवर संपर्क साधू शकता.</p>
+        </div>
+        <button type="button" class="collapsible">2)मी हे उपकरण कसे नियंत्रित करू शकतो? <i class="fa fa fa-plus fa-fw   w3-margin-right " style="float: right; color:#ff6600"> </i></button>
+        <div class="content">
+          <p>डिव्हाइस नियंत्रित करण्यासाठी तुम्ही कॉल करून, मिस्ड कॉलद्वारे किंवा नोंदणीकृत मोबाइल क्रमांकावरून एसएमएस पाठवून करू शकता.</p>
+        </div>
+        <button type="button" class="collapsible">3)मी हे उपकरण फक्त मिस्ड कॉलने नियंत्रित करू शकतो का?  <i class="fa fa fa-plus fa-fw   w3-margin-right " style="float: right; color:#ff6600"> </i></button> 
+        <div class="content">
+          <p> तुम्ही फक्त मिस कॉल करून मोटर चालू/बंद करू शकता. तुम्ही मिस्ड कॉल मोड अक्षम किंवा सक्षम करू शकता.</p>
+        </div>
+
+        <button type="button" class="collapsible">4) हे उपकरण अयशस्वी झाल्यास, ते माझ्या मोटरला देखील नुकसान करेल का?<i class="fa fa fa-plus fa-fw   w3-margin-right " style="float: right; color:#ff6600"> </i></button>
+        <div class="content">
+          <p> 
+            या उत्पादनाची अनेक परिस्थितींमध्ये चाचणी केली जात असल्याने, ते त्याच्या विश्वसनीय कार्याची खात्री देते. हे अनियमित वीज पुरवठा, कट ऑफ, व्होल्टेज चढउतार, ड्राय रन, current चा उच्च प्रवाह, नकारात्मक अनुक्रम आणि फेज असमतोल यांमुळे होणारे नुकसान टाळण्यास मदत करते.</p>
+        </div>
+
+        <button type="button" class="collapsible">5)किती वापरकर्ते एकाच व्हेरिअनटच मोबाईल ऑटो ला नियंत्रित करू शकतात? <i class="fa fa fa-plus fa-fw   w3-margin-right " style="float: right; color:#ff6600"> </i></button>
+        <div class="content">
+          <p> तुम्ही ५ वापरकर्त्यांसह variantuch mobile auto नियंत्रित करू शकता.</p>
+        </div>
+
+        <button type="button" class="collapsible">6)व्हेरियंटच मोबाईल ऑटोच्या पूर्ण स्थापनेसाठी कोणत्या पूर्व-आवश्यकता आहेत? <i class="fa fa fa-plus fa-fw   w3-margin-right " style="float: right; color:#ff6600"> </i></button>
+        <div class="content">
+          <p> 
+            कार्यरत मोटर (वॉटर पंप), 2g कार्यरत सिम कार्ड ज्यामध्ये एसएमएस पाठवण्यासाठी आणि कॉल करण्यासाठी पुरेशी रक्कम शिल्लक आहे, आणि सक्रिय वीज पुरवठा.</p>
+        </div>
+
+        <button type="button" class="collapsible">7) मला या उत्पादनासह किती वॉरंटी मिळेल? <i class="fa fa fa-plus fa-fw   w3-margin-right " style="float: right; color:#ff6600"> </i></button>
+        <div class="content">
+          <p> आम्ही या उत्पादनावर 2 वर्षांची वॉरंटी देत आहोत. आणि ती पण सर्वोत्तम सपोर्टसह जो की बाजारात उपलब्ध असलेला उत्कृष्ट दर्जाचा आहे.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Contact Section -->
+  <div class="w3-container w3-light-grey w3-padding-64" id="contact">
+    <h3 class="w3-center"> संपर्क </h3>
+
+    <div class="w3-row-padding">
+      <div class="w3-col m4">
+        <p class="w3-center  w3-large"><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right "
+            style="color:#ff6600"> </i> आम्हाला नकाशांवर शोधा</p>
+        <div class="w3-center"><iframe style="box-shadow: 10px 10px 5px grey;"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.4324625363442!2d73.82291135076001!3d18.46406018738027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc295441cdf524b%3A0x4431e33fede7c538!2sNiranjan%20Residency%2C%20Wadgaon%20Budruk%20-%20Narhe%20Rd%2C%20Ghule%20Nagar%2C%20Vadgaon%20Budruk%2C%20Pune%2C%20Maharashtra%20411041!5e0!3m2!1sen!2sin!4v1612446934490!5m2!1sen!2sin"
+            width=”100%” height=”300%” frameborder="0" style="border:0;" allowfullscreen="false" aria-hidden="false"
+            tabindex="0"></iframe></div>
+      </div>
+      <div class="w3-col m4">
+        <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right" style="color:#ff6600"></i> निरंजन रेसिडेन्सी, वडगाव बुद्रुक - नर्हे रोड, घुले नगर, वडगाव बुद्रुक, पुणे, ४१११०४१ महाराष्ट्र, भारत
+        </p>
+        <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right" style="color:#ff6600"></i> +91 8624025895</p>
+        <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right" style="color:#ff6600"> </i>
+          variantouch@gmail.com</p>
+      </div>
+
+      <div class="w3-col m4">
+        <p class="w3-center w3-large">आम्हाला संपर्क करा. एथे संदेश पाठवा:</p>
+        <form method="post" autocomplete="off" name="contact-us">
+          <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name" required></p>
+          <p><input class="w3-input w3-border" type="email" placeholder="Email" required name="Email" required></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject" required></p>
+          <p><input class="w3-input w3-border" type="textarea" placeholder="Message" required name="Message" required></p>
+          <p>
+            <button class="w3-button w3-black" type="submit" name="submit">
+              <i class="fa fa-paper-plane " style="color:#ff6600"></i> संदेश पाठवा
+            </button>
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Pricing Section -->
+  <!-- <div class="w3-container w3-center w3-dark-grey" style="padding:128px 16px" id="pricing">
+  <h3>PRICING</h3>
+  <p class="w3-large">Choose a pricing plan that fits your needs.</p>
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-third w3-section">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-black w3-xlarge w3-padding-32">Basic</li>
+        <li class="w3-padding-16"><b>10GB</b> Storage</li>
+        <li class="w3-padding-16"><b>10</b> Emails</li>
+        <li class="w3-padding-16"><b>10</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">$ 10</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+    <div class="w3-third">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
+        <li class="w3-padding-16"><b>25GB</b> Storage</li>
+        <li class="w3-padding-16"><b>25</b> Emails</li>
+        <li class="w3-padding-16"><b>25</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">$ 25</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+    <div class="w3-third w3-section">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-black w3-xlarge w3-padding-32">Premium</li>
+        <li class="w3-padding-16"><b>50GB</b> Storage</li>
+        <li class="w3-padding-16"><b>50</b> Emails</li>
+        <li class="w3-padding-16"><b>50</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">$ 50</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+
+  <!-- Footer -->
+  <footer class="w3-center w3-dark-grey w3-padding-64">
+    <a href="#" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>शीर्षस्थानी</a>
+    <div class="w3-xlarge w3-section">
+     <a href="https://www.facebook.com/variantouch/" target="_blank"> <i class="fa fa-facebook-official w3-hover-opacity" style="color:#ff6600" ></i></a> 
+      <a href="http://www.instagram.com/variantouch/" target="_blank"><i class="fa fa-instagram w3-hover-opacity " style="color:#ff6600" ></i></a>
+      <a href="https://www.youtube.com/channel/UCAorB2GQf4CbTZTI84bKj0w" target="_blank"><i class="fa fa-youtube w3-hover-opacity" style="color:#ff6600"></i></a>
+     <!-- <i class="fa fa-pinterest-p w3-hover-opacity" style="color:#ff6600"></i> -->
+     <a href="http://www.twitter.com/variantouch" target="_blank" ><i class="fa fa-twitter w3-hover-opacity" style="color:#ff6600" ></i></a>
+     <a href="http://www.linkedin.com/company/variantouch" target="_blank" ><i class="fa fa-linkedin w3-hover-opacity" style="color:#ff6600"  ></i></a>
+    </div>
+    <p>All rights reserved with variantouch solutions. </p>
+  </footer>
+
+  <script>
+    //Slider code 
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    var mySidebar = document.getElementById("mySidebar");
+
+    function w3_open() {
+      if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+      } else {
+        mySidebar.style.display = 'block';
+      }
+    }
+
+    // Close the sidebar with the close button
+    function w3_close() {
+      mySidebar.style.display = "none";
+    }
+
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+
+
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx41cFHmULF4Qb-Ctg435a7VF1cIdgHcUssH1GJM1NFOekBan67p9JqjtHJMK3qOupzAA/exec'
+    
+            const form = document.forms['contact-us']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+
+    function changeToMarathi() {
+        document.location.href("marathi_index.html");
+    }        
+
+  </script>
+
+</body>
+
+</html>
