@@ -807,7 +807,7 @@
 
         <!-- Hide right-floated links on small screens and replace them with a menu icon -->
         <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
-          onclick="w3_open()">
+          onclick="w3_openm()">
           <i class="fa fa-bars"></i>
         </a>
       </div>
@@ -815,14 +815,14 @@
 
     <!-- Sidebar on small screens when clicking the menu icon -->
     <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
-      style="display:none" id="mySidebar">
-      <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">बंद ×</a>
-      <a href="#" onclick="w3_close()" class="w3-bar-item w3-button">मुख्यपृष्ठ</a>
-      <a href="#aboutm" onclick="w3_close()" class="w3-bar-item w3-button" style="color: #ff6600  ">आमच्याबद्दल</a>
-      <a href="#supportm" onclick="w3_close()" class="w3-bar-item w3-button" style="color: #ff6600  ">मदत</a>
-      <a href="#productsm" onclick="w3_close()" class="w3-bar-item w3-button" style="color: #ff6600  ">उत्पादने</a>
+      style="display:none" id="mySidebarm">
+      <a href="javascript:void(0)" onclick="w3_closem()" class="w3-bar-item w3-button w3-large w3-padding-16">बंद ×</a>
+      <a href="#" onclick="w3_closem()" class="w3-bar-item w3-button">मुख्यपृष्ठ</a>
+      <a href="#aboutm" onclick="w3_closem()" class="w3-bar-item w3-button" style="color: #ff6600  ">आमच्याबद्दल</a>
+      <a href="#supportm" onclick="w3_closem()" class="w3-bar-item w3-button" style="color: #ff6600  ">मदत</a>
+      <a href="#productsm" onclick="w3_closem()" class="w3-bar-item w3-button" style="color: #ff6600  ">उत्पादने</a>
       <!-- <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a> -->
-      <a href="#contactm" onclick="w3_close()" class="w3-bar-item w3-button" style="color: #ff6600  ">संपर्क</a>
+      <a href="#contactm" onclick="w3_closem()" class="w3-bar-item w3-button" style="color: #ff6600  ">संपर्क</a>
       <a class="w3-bar-item w3-button" style="color: #ff6600; font-size: 18px;   " href="javascript:;"
       onmousedown="toggleDiv('mydiv');">
       <!-- <strong>Change to English </strong> -->
@@ -1310,6 +1310,7 @@
 
     // Toggle between showing and hiding the sidebar when clicking the menu icon
     var mySidebar = document.getElementById("mySidebar");
+    var mySidebarm = document.getElementById("mySidebarm");
 
     function w3_open() {
       if (mySidebar.style.display === 'block') {
@@ -1319,9 +1320,21 @@
       }
     }
 
+    function w3_openm() {
+      if (mySidebarm.style.display === 'block') {
+        mySidebarm.style.display = 'none';
+      } else {
+        mySidebarm.style.display = 'block';
+      }
+    }
+
     // Close the sidebar with the close button
     function w3_close() {
       mySidebar.style.display = "none";
+    }
+
+    function w3_closem() {
+      mySidebarm.style.display = "none";
     }
 
     var coll = document.getElementsByClassName("collapsible");
